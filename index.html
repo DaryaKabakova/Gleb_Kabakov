@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f9f9f9; }
+        h1 { color: #333; }
+        .button { display: inline-block; padding: 15px 25px; background: #ff6600; color: #fff; text-decoration: none; border-radius: 5px; font-size: 18px; }
+        .button:hover { background: #e55e00; }
+        form { margin-top: 30px; }
+        input, textarea { width: 80%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #ff6600; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #e55e00; }
+    </style>
+</head>
+<body>
+    <h1>Привет! Это мой одностраничный сайт</h1>
+    <p>Здесь можно разместить описание, портфолио или контакты.</p>
+    
+    <a href="#contact" class="button">Оставить заявку</a>
+    
+    <form id="contact">
+        <h2>Свяжись со мной</h2>
+        <input type="text" id="name" placeholder="Ваше имя" required>
+        <input type="email" id="email" placeholder="Ваш email" required>
+        <textarea id="message" placeholder="Ваше сообщение" required></textarea>
+        <button type="button" onclick="sendToTelegram()">Отправить</button>
+    </form>
+    
+    <script>
+        function sendToTelegram() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                const botToken = "YOUR_BOT_TOKEN"; // ЗАМЕНИТЬ НА ТОКЕН БОТА
+                const chatId = "YOUR_CHAT_ID"; // ЗАМЕНИТЬ НА ID ЧАТА
+                const text = `Новая заявка!\nИмя: ${name}\nEmail: ${email}\nСообщение: ${message}`;
+                
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
+                    .then(response => response.json())
+                    .then(data => alert("Заявка отправлена!"))
+                    .catch(error => alert("Ошибка отправки!"));
+            } else {
+                alert("Заполните все поля!");
+            }
+        }
+    </script>
+</body>
+</html>
