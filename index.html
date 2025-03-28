@@ -1,53 +1,118 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f9f9f9; }
-        h1 { color: #333; }
-        .button { display: inline-block; padding: 15px 25px; background: #ff6600; color: #fff; text-decoration: none; border-radius: 5px; font-size: 18px; }
-        .button:hover { background: #e55e00; }
-        form { margin-top: 30px; }
-        input, textarea { width: 80%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { background: #ff6600; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; }
-        button:hover { background: #e55e00; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Глеб Кабаков — Ведущий мероприятий</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Привет! Это мой одностраничный сайт</h1>
-    <p>Здесь можно разместить описание, портфолио или контакты.</p>
-    
-    <a href="#contact" class="button">Оставить заявку</a>
-    
-    <form id="contact">
-        <h2>Свяжись со мной</h2>
-        <input type="text" id="name" placeholder="Ваше имя" required>
-        <input type="email" id="email" placeholder="Ваш email" required>
-        <textarea id="message" placeholder="Ваше сообщение" required></textarea>
-        <button type="button" onclick="sendToTelegram()">Отправить</button>
-    </form>
-    
-    <script>
-        function sendToTelegram() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-                const botToken = "YOUR_BOT_TOKEN"; // ЗАМЕНИТЬ НА ТОКЕН БОТА
-                const chatId = "YOUR_CHAT_ID"; // ЗАМЕНИТЬ НА ID ЧАТА
-                const text = `Новая заявка!\nИмя: ${name}\nEmail: ${email}\nСообщение: ${message}`;
-                
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
-                    .then(response => response.json())
-                    .then(data => alert("Заявка отправлена!"))
-                    .catch(error => alert("Ошибка отправки!"));
-            } else {
-                alert("Заполните все поля!");
-            }
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Глеб Кабаков</div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#portfolio">Портфолио</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Незабываемые мероприятия<br>вместе с лучшим ведущим</h1>
+      <p class="hero-subtext">Свадьбы, корпоративы, юбилеи — я сделаю ваш день ярким, душевным и идеально организованным.</p>
+      <a href="#contact" class="hero-button">Оставить заявку</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Обо мне</h2>
+      <p>Меня зовут Глеб Кабаков, я профессиональный ведущий с опытом более 10 лет. Работаю на свадьбах, днях рождения, корпоративах и других торжествах. Моя цель — создать атмосферу радости, уюта и стиля.</p>
+    </div>
+  </section>
+
+  <section id="services" class="section gray">
+    <div class="container">
+      <h2>Услуги</h2>
+      <ul class="services-list">
+        <li>Свадебный ведущий</li>
+        <li>Ведущий на корпоратив</li>
+        <li>Юбилеи и дни рождения</li>
+        <li>Помощь с организацией</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+    <div class="container">
+      <h2>Портфолио</h2>
+      <div class="portfolio-gallery">
+        <!-- Заменить src на реальные фото -->
+        <img src="images/photo1.jpg" alt="Фото мероприятия">
+        <img src="images/photo2.jpg" alt="Фото мероприятия">
+        <img src="images/photo3.jpg" alt="Фото мероприятия">
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section gray">
+    <div class="container">
+      <h2>Отзывы</h2>
+      <div class="reviews">
+        <blockquote>
+          <p>"Глеб сделал наш вечер невероятным! Всё было легко, весело и по-настоящему душевно."</p>
+          <footer>— Анна и Сергей</footer>
+        </blockquote>
+        <blockquote>
+          <p>"Профессионал с большой буквы. От души рекомендую!"</p>
+          <footer>— Ирина П.</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Связаться со мной</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Глеб Кабаков. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
         }
-    </script>
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.section, .portfolio-gallery img, .reviews blockquote').forEach(el => {
+      el.classList.add('hidden');
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
+
+
