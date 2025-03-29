@@ -1,14 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Глеб Кабаков — Ведущий мероприятий</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="site-header">
+
+  <header class="site-header hidden-header" id="mainHeader">
     <div class="container">
       <div class="logo">Глеб Кабаков</div>
       <nav class="main-nav">
@@ -23,13 +25,21 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Незабываемые мероприятия<br>вместе с лучшим ведущим</h1>
-      <p class="hero-subtext">Свадьбы, корпоративы, юбилеи — я сделаю ваш день ярким, душевным и идеально организованным.</p>
-      <a href="#contact" class="hero-button">Оставить заявку</a>
+  
+  <section class="hero full-screen" id="top">
+    
+    <div class="hero-overlay-fix">
+      <div class="container hero-content">
+        <h1>Глеб Кабаков</h1>
+        <p class="hero-subtext">Сделаю ваше мероприятие незабываемым</p>
+        <a href="#contact" class="hero-button">Оставить заявку</a>
+      </div>
     </div>
   </section>
+
+  <!-- остальная часть сайта можно вернуть по желанию -->
+  
+  
 
   <section id="about" class="section">
     <div class="container">
@@ -54,7 +64,6 @@
     <div class="container">
       <h2>Портфолио</h2>
       <div class="portfolio-gallery">
-        <!-- Заменить src на реальные фото -->
         <img src="images/photo1.jpg" alt="Фото мероприятия">
         <img src="images/photo2.jpg" alt="Фото мероприятия">
         <img src="images/photo3.jpg" alt="Фото мероприятия">
@@ -96,23 +105,54 @@
     </div>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
 
-    document.querySelectorAll('.section, .portfolio-gallery img, .reviews blockquote').forEach(el => {
-      el.classList.add('hidden');
-      observer.observe(el);
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const header = document.getElementById('mainHeader');
+      const hero = document.getElementById('hero');
+
+      if (!header) {
+        console.log("❌ Шапка не найдена");
+        return;
+      }
+      if (!hero) {
+        console.log("❌ Hero-секция не найдена");
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          console.log("👀 Hero виден:", entry.isIntersecting);
+          if (!entry.isIntersecting) {
+            console.log("🔔 Показываем шапку");
+            header.classList.add('visible');
+          } else {
+            console.log("🙈 Прячем шапку");
+            header.classList.remove('visible');
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      observer.observe(hero);
     });
   </script>
 </body>
+
+
+
+
+
+
 </html>
-
-

@@ -71,6 +71,7 @@
   }
   
   .hero-subtext {
+  color: #fca311;
     font-size: 20px;
     margin-bottom: 40px;
     max-width: 800px;
@@ -254,6 +255,7 @@
     }
   
     .hero-subtext {
+  color: #fca311;
       font-size: 16px;
     }
   
@@ -264,3 +266,63 @@
   }
   
   
+
+
+/* Новый Hero блок на фоне */
+.full-screen {
+  height: 100vh;
+  background-image: url('images/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-overlay-fix {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease;
+}
+
+.hero-content h1 {
+  color: #fca311;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.hero-subtext {
+  color: #fca311;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+/* Скрипт появления шапки */
+
+
+/* Плавное появление шапки */
+.site-header {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.site-header.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
