@@ -345,7 +345,7 @@ h2 {
   transition: all 0.4s ease-in-out;
 }
 .image-wrapper {
-  background-color: #fae20653; /* фон под фото */
+  background-color: #8585865e; /* фон под фото */
   padding: 10px; /* внутренние отступы вокруг фото */
 }
 .about-text {
@@ -355,7 +355,7 @@ h2 {
 .about-text p {
   font-size: 20px; /* тут регулируешь размер */
   line-height: 1.8; /* увеличиваем межстрочный интервал, чтобы читалось легче */
-  color: #383737; /* красивый тёмный текст */
+  color: #333; /* красивый тёмный текст */
   margin-bottom: 20px; /* отступы между абзацами */
 }
 
@@ -383,13 +383,14 @@ h2 {
   line-height: 1.4;
 }
 .trust-card {
-  background-color: #fae20653; /* карточка */
+  background-color: #05377cdb; /* карточка */
   padding: 30px 25px;
   margin-bottom: 30px;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Мягкая тень */
   text-align: left; /* Выравнивание текста по левому краю */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #dbd9d9;  
 }
 
 .trust-card:hover {
