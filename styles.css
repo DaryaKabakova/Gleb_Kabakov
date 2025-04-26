@@ -64,7 +64,7 @@ body {
 
 .main-nav a {
   position: relative;
-  color: #383737;
+  color: #333;
   text-decoration: none;
   font-weight: 600;
   padding-bottom: 20px;
@@ -105,7 +105,7 @@ body {
   background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   text-align: center;
   padding: 120px 20px 150px;
-  color: #0a0a0a;
+  color: #333;
   animation: fadeIn 2s ease;
   position: relative;
 }
@@ -126,7 +126,7 @@ body {
   padding-top: 150px;
 }
 
-.hero h1 {
+.hero h1 { 
   font-size: 60px;
   margin-bottom: 20px;
 }
@@ -149,12 +149,12 @@ body {
 }
 
 
-h1 {
+h1 { 
     font-size: 100px !important;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
-    color: #dddddd;
+    color: #ffffff; /* Обо мне 2*/
   }
   
 
@@ -162,9 +162,11 @@ h2 {
   font-size: 60px; /* или любой размер, который хочешь */
   margin-bottom: 30px;
   text-align: center;
-  color: #dddddd;
+  color: #333; /* Обо мне 2 */
 }
-
+.section h1 {
+  color: #333; /* Тёмный цвет для второго "Обо мне" */
+}
 /* Разделы */
 .section {
   opacity: 0;
@@ -238,7 +240,7 @@ h2 {
 .site-footer {
   text-align: center;
   padding: 40px 0;
-  background-color: #111;
+  background-color: #333;
   color: #fff;
   font-size: 14px;
 }
@@ -288,7 +290,7 @@ h2 {
 
 .site-header {
     background: #ffffff;
-    color: #383737;
+    color: #333;
     padding: 10px 0 5px 0;
     position: fixed; /* ВМЕСТО sticky — ставим fixed */
     top: 0;
@@ -297,7 +299,7 @@ h2 {
     transform: translateY(-100%); /* Шапка изначально спрятана вверх */
     transition: transform 0.4s ease;
     z-index: 1000; /* Чтобы быть всегда поверх */
-    border-bottom: 1px solid #383737;
+    border-bottom: 1px solid #333;
     font-family: 'Playfair Display', serif; 
     .site-header.header-visible {
       transform: translateY(0);
@@ -337,15 +339,24 @@ h2 {
 
 .about-image img {
   display: block;
-  width: 400px; /* или меньше, если хочешь */
+  width: 600px; /* или меньше, если хочешь */
   max-width: none;
   height: auto;
   transition: all 0.4s ease-in-out;
 }
-
+.image-wrapper {
+  background-color: #fae20653; /* фон под фото */
+  padding: 10px; /* внутренние отступы вокруг фото */
+}
 .about-text {
-  max-width: 500px;
-  padding-left: 80px;
+  max-width: 550px;
+  padding-left: 40px;
+}
+.about-text p {
+  font-size: 20px; /* тут регулируешь размер */
+  line-height: 1.8; /* увеличиваем межстрочный интервал, чтобы читалось легче */
+  color: #383737; /* красивый тёмный текст */
+  margin-bottom: 20px; /* отступы между абзацами */
 }
 
 .about-image img:hover {
@@ -356,7 +367,53 @@ h2 {
   margin-left: 0;
   max-width: 100%;
 }
+.trust-title {
+  font-size: 60px !important;
+  font-weight: 700;
+  color: #383737 !important;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.trust-section .intro {
+  font-size: 36px;
+  font-weight: 700;
+  color: #383737; /* тёмно-серый цвет для хорошей читаемости */
+  margin-top: 60px; /* <<< добавили отступ сверху */
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+.trust-card {
+  background-color: #fae20653; /* карточка */
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Мягкая тень */
+  text-align: left; /* Выравнивание текста по левому краю */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.trust-card:hover {
+  transform: translateY(-5px); /* Чуть приподнимается при наведении */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12); /* Чуть сильнее тень */
+}
+.trust-section {
+  background-image: url('images/your-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* эффект параллакса (если хочешь) */
+  padding: 80px 20px;
+  text-align: center;
+  color: #383737;
+}
+
+.trust-section .container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8); /* полупрозрачный белый фон ПОД текстом */
+  padding: 40px 30px;
+  border-radius: 20px;
+}
 /* Адаптация */
 @media (max-width: 768px) {
   .main-nav ul {
@@ -409,7 +466,7 @@ h2 {
   /* Скрытая шапка по умолчанию */
   .site-header {
     background: rgba(255, 255, 255, 0); /* прозрачный фон */
-    color: #383737;
+    color: #333;
     padding: 10px 0 5px 0;
     position: fixed;
     top: 0;
@@ -419,7 +476,7 @@ h2 {
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.4s ease, background 0.4s ease;
     z-index: 1000;
-    border-bottom: 1px solid #383737;
+    border-bottom: 1px solid #333;
     font-family: 'Playfair Display', serif;
   }
   
